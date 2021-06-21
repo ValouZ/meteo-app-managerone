@@ -3,7 +3,7 @@
 Réalisation d'une application web de météo en VueJS.
 
 - Possibilité de chercher la météo d'une ville ;
-- Vue détaillée de la météo (Actuelle, sur plusieurs jours, toutes les infos que tu peux trouver) ;
+- Vue détaillée de la météo (Actuelle, sur plusieurs jours, toutes les infos que tu peux trouver);
 - Possibilité de rajouter des villes aux favoris et avoir accès à la météo de ces villes ;
 - Utilisation de l'API de ton choix (tu en trouveras en ligne gratuitement).
 

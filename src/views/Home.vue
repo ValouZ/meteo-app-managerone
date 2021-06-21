@@ -1,22 +1,36 @@
 <template>
   <div class="home">
-    <Meteo />
+    <Header />
+    <Searchbar />
+    <WeatherCard />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Meteo from "@/components/Meteo.vue";
-
+import WeatherCard from "@/components/WeatherCard.vue";
+import Header from "@/components/Header.vue";
+import Searchbar from "../components/Searchbar.vue";
 export default {
   name: "Home",
   components: {
-    Meteo,
+    WeatherCard,
+    Header,
+    Searchbar,
   },
 
   beforeCreate() {
     //actions
-    this.$store.dispatch("setWeather", "Montesson");
+    this.$store.dispatch("setWeather", "New york");
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+</style>

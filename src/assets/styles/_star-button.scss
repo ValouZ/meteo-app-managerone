@@ -1,0 +1,21 @@
+.star-button {
+  &__button {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    border: none;
+    background: none;
+
+    &:hover .star-icon {
+      path {
+        fill: $blue;
+      }
+    }
+
+    .star-icon {
+      position: absolute;
+      top: 2.5px;
+      left: 2.5px;
+    }
+  }
+}
