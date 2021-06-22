@@ -30,7 +30,7 @@ export default createStore({
   actions: {
     setWeather({ commit, state }, city, day = 0) {
       fetch(
-        'http://api.weatherapi.com/v1/current.json?key=50a492d81e884b81844173743211906&q=' +
+        'https://api.weatherapi.com/v1/current.json?key=50a492d81e884b81844173743211906&q=' +
           city +
           '&aqi=no',
       )
@@ -43,7 +43,7 @@ export default createStore({
     },
     async setForecast({ commit, state }, city, day = 0) {
       let url =
-        'http://api.weatherapi.com/v1/forecast.json?key=50a492d81e884b81844173743211906&q=' +
+        'https://api.weatherapi.com/v1/forecast.json?key=50a492d81e884b81844173743211906&q=' +
         city +
         '&aqi=no'
       // Si on cherche un jour spécifique
