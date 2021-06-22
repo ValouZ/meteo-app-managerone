@@ -9,9 +9,9 @@
 <script>
 export default {
   mounted() {
-    setTimeout(() => {
-      console.log(this.forecast)
-    }, 1000)
+    // setTimeout(() => {
+    //   console.log(this.forecast)
+    // }, 1000)
   },
   computed: {
     forecast() {

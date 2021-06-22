@@ -8,6 +8,15 @@
   margin: 0 15px;
   border-radius: 12px 0;
   box-shadow: 0 0 20px rgba($color: $black, $alpha: 0.25);
+  transition: background 0.1s ease-in;
+
+  .already-fav{
+    width: 100%;
+    background: rgba($color: $red, $alpha: 0.8);
+    text-align: center;
+    margin-bottom: 10px;
+    border-radius: 4px 0;
+  }
 
   .main{
     display: flex;
