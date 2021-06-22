@@ -8,21 +8,19 @@
 <script>
 // @ is an alias to /src
 import WeatherCard from '@/components/WeatherCard.vue'
-import Header from '@/components/Header.vue'
 import Searchbar from '../components/Searchbar.vue'
 export default {
   name: 'Home',
   components: {
     WeatherCard,
-    Header,
     Searchbar,
   },
 
-  beforeCreate() {
-    //actions
-    this.$store.dispatch('setWeather', 'Montesson', 9)
-    // this.$store.dispatch('setForecast', 'Montesson', 9)
-  },
+  // beforeCreate() {
+  //   //actions
+  //   this.$store.dispatch('setWeather', 'Montesson')
+  //   // this.$store.dispatch('setForecast', 'Montesson', 9)
+  // },
 }
 </script>
 

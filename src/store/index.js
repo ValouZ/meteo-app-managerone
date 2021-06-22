@@ -5,7 +5,7 @@ export default createStore({
     location: {},
     currentWeather: {},
     forecast: {},
-    favCities: ["Caca"],
+    favCities: ['Montesson', 'New york', 'Tokyo'],
   },
   mutations: {
     setLocation(state, data) {
@@ -22,6 +22,9 @@ export default createStore({
     },
     removeFavCity(state, index) {
       state.favCities.splice(index, 1)
+    },
+    drainFavCities(state) {
+      state.favCities = []
     },
   },
   actions: {
@@ -69,6 +72,9 @@ export default createStore({
     },
     removeFavCity({ commit, state }, index) {
       commit('removeFavCity', index)
+    },
+    drainFavCities({ commit, state }) {
+      commit('drainFavCities')
     },
   },
   modules: {},

@@ -1,11 +1,25 @@
-.fav-list{
-  ul{
+.fav-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .fav-city {
+    margin-bottom: 50px;
+  }
+  ul {
     display: flex;
     flex-direction: column;
     align-items: center;
     min-width: 250px;
+
+    .weather-card{
+      &:hover{
+        background: darken($color: $lightblue, $amount: 10);
+        cursor: pointer;
+      }
+    }
   }
-  li{
+  li {
     position: relative;
     // width: 100%;
     // background: $lightblue;
@@ -13,11 +27,11 @@
     // border-radius: 8px 0;
     // text-align: center;
 
-    &:not(:last-child){
+    &:not(:last-child) {
       margin-bottom: 20px;
     }
 
-    .delete-fav{
+    .delete-fav {
       position: absolute;
       top: 0;
       right: 0;
@@ -25,8 +39,8 @@
       background: none;
       border: none;
 
-      &:hover{
-        path{
+      &:hover {
+        path {
           fill: $blue;
         }
       }
