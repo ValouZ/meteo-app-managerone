@@ -1,16 +1,22 @@
 <template>
   <div class="star-button">
-    <button class="star-button__button">
+    <button v-on:click="addFav()" class="star-button__button">
       <star-icon />
     </button>
   </div>
 </template>
 
 <script>
-import StarIcon from "./StarIcon.vue";
+import StarIcon from './icon/StarIcon.vue'
 export default {
   components: { StarIcon },
-};
+  methods: {
+    addFav() {
+      let city = this.$store.getters.getLocation.name
+      this.$store.dispatch('addFavCity', city)
+    },
+  },
+}
 </script>
 
 <style lang="scss" scoped></style>

@@ -1,34 +1,74 @@
-import { createStore } from "vuex";
+import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    // weather: {},
     location: {},
     currentWeather: {},
+    forecast: {},
+    favCities: ["Caca"],
   },
   mutations: {
-    // setWeather(state, data) {
-    //   state.weather = data;
-    // },
     setLocation(state, data) {
-      state.location = data;
+      state.location = data
     },
     setCurrentWeather(state, data) {
-      state.currentWeather = data;
+      state.currentWeather = data
+    },
+    setForecast(state, data) {
+      state.forecast = data
+    },
+    addFavCity(state, city) {
+      state.favCities.push(city)
+    },
+    removeFavCity(state, index) {
+      state.favCities.splice(index, 1)
     },
   },
   actions: {
-    setWeather({ commit, state }, city) {
+    setWeather({ commit, state }, city, day = 0) {
       fetch(
-        "http://api.weatherapi.com/v1/current.json?key=50a492d81e884b81844173743211906&q=" +
+        'http://api.weatherapi.com/v1/current.json?key=50a492d81e884b81844173743211906&q=' +
           city +
-          "&aqi=no"
+          '&aqi=no',
       )
         .then((response) => response.json())
-        .then(function(data) {
-          commit("setLocation", data.location);
-          commit("setCurrentWeather", data.current);
-        });
+        .then(function (data) {
+          commit('setLocation', data.location)
+          commit('setCurrentWeather', data.current)
+        })
+      this.dispatch('setForecast', city, day)
+    },
+    async setForecast({ commit, state }, city, day = 0) {
+      let url =
+        'http://api.weatherapi.com/v1/forecast.json?key=50a492d81e884b81844173743211906&q=' +
+        city +
+        '&aqi=no'
+      // Si on cherche un jour spécifique
+      if (day >= 1 && day <= 10) {
+        fetch(url + '&days=' + day)
+          .then((response) => response.json())
+          .then(function (data) {
+            // console.log('Forecast fetched - day: ' + day)
+            commit('setForecast', data)
+          })
+      } else {
+        // Si on veut récupérer les 10 jours à venir
+        for (day = 1; day < 11; day++) {
+          await fetch(url + '&days=' + day)
+            .then((response) => response.json())
+            .then(function (data) {
+              // console.log('Forecast fetched - day: ' + day)
+              // console.log(data)
+              commit('setForecast', data)
+            })
+        }
+      }
+    },
+    addFavCity({ commit, state }, city) {
+      commit('addFavCity', city)
+    },
+    removeFavCity({ commit, state }, index) {
+      commit('removeFavCity', index)
     },
   },
   modules: {},
@@ -37,10 +77,16 @@ export default createStore({
     //   return state.weather;
     // },
     getLocation(state) {
-      return state.location;
+      return state.location
     },
     getCurrentWeather(state) {
-      return state.currentWeather;
+      return state.currentWeather
+    },
+    getForecast(state) {
+      return state.forecast
+    },
+    getFavCities(state) {
+      return state.favCities
     },
   },
-});
+})
