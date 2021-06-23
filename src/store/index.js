@@ -28,8 +28,8 @@ export default createStore({
     },
   },
   actions: {
-    setWeather({ commit, state }, city, day = 0) {
-      fetch(
+    async setWeather({ commit, state }, city, day = 0) {
+      await fetch(
         'https://api.weatherapi.com/v1/current.json?key=50a492d81e884b81844173743211906&q=' +
           city +
           '&aqi=no',

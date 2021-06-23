@@ -76,4 +76,15 @@
     display: flex;
     justify-content: center;
   }
+
+  // Caché de base
+  .more{
+    margin-top: 20px;
+    height: 200px;
+    transition: 1s all;
+  }
+  .hidden{
+    opacity: 0;
+    height: 0px;
+  }
 }

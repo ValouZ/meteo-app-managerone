@@ -16,99 +16,63 @@
         <StarButton v-if="!favCity" @alreadyFav="alreadyFav" />
       </div>
 
-      <!-- Permet d'attendre que les conditions soient chargé avant de les afficher -->
-      <div v-if="weather.condition" class="condition">
-        <img :src="weather.condition.icon" alt="weather representation" />
-        <p>{{ weather.condition.text }}</p>
-      </div>
+      <Condition :weather="weather" />
+      <Heats :weather="weather" />
 
-      <div class="heats">
-        <h3 class="heat">{{ weather.temp_c }}°C</h3>
-        <MinMax />
-      </div>
+      <ArrowDown v-on:click="isHidden = !isHidden" />
+    </section>
 
-      <ArrowDown />
+    <section class="more" :class="{ hidden: isHidden }">
+      <WeatherCardBottom :weather="weather" />
     </section>
   </section>
-
-  <!-- <p class="wind">Vent : {{ weather.wind_kph }} km/h</p> -->
-  <!-- <p class="last-update">{{ lastUpdate }}</p> -->
 </template>
 
 <script>
-import StarButton from './StarButton.vue'
-import ArrowDown from './ArrowDown.vue'
-import MinMax from './MinMax.vue'
-export default {
-  components: { StarButton, ArrowDown, MinMax },
+import StarButton from "./StarButton.vue";
+import ArrowDown from "./ArrowDown.vue";
+import Condition from "./Condition.vue";
+import Heats from "./Heats.vue";
+import WeatherCardBottom from "./WeatherCardBottom.vue";
 
+export default {
+  components: { StarButton, ArrowDown, Condition, Heats, WeatherCardBottom },
   mounted() {
     setTimeout(() => {
       // console.log(this.weather)
-    }, 1000)
+    }, 1000);
   },
 
-  props: ['data', 'favMinimize', 'favCity'],
+  props: ["data", "favMinimize", "favCity"],
 
   data() {
     return {
       minimize: this.favMinimize,
       fav: false,
-    }
+      isHidden: true,
+    };
   },
 
   computed: {
     weather() {
-      return this.$store.getters.getCurrentWeather
+      return this.$store.getters.getCurrentWeather;
     },
-    // lastUpdate() {
-    //   // let lastUpdate = this.weather.last_updated;
-    //   let date = lastUpdate.split(' ')
-    //   return this.getDayLastUpdate() + ' ' + date[1]
-    // },
     city() {
-      return this.$store.getters.getLocation
+      return this.$store.getters.getLocation;
     },
   },
 
   methods: {
     openCard() {
-      this.$emit('openCard', this.favCity)
+      this.$emit("openCard", this.favCity);
       // this.minimize = false
-      this.$store.dispatch('setWeather', this.favCity)
+      this.$store.dispatch("setWeather", this.favCity);
     },
     alreadyFav(state) {
-      this.fav = state
-      console.log('DEJA FAVORIS')
+      this.fav = state;
     },
-
-    // getDayLastUpdate() {
-    //   let date = new Date(this.weather.last_updated)
-    //   return this.getDayString(date.getDay())
-    // },
-
-    // getDayString(value) {
-    //   switch (value) {
-    //     case 1:
-    //       return 'Lundi'
-    //     case 2:
-    //       return 'Mardi'
-    //     case 3:
-    //       return 'Mercredi'
-    //     case 4:
-    //       return 'Jeudi'
-    //     case 5:
-    //       return 'Vendredi'
-    //     case 6:
-    //       return 'Samedi'
-    //     case 7:
-    //       return 'Dimanche'
-    //     default:
-    //       return 'No a day'
-    //   }
-    // },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped></style>

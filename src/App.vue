@@ -9,9 +9,9 @@ export default {
   components: {
     Header,
   },
-  beforeCreate() {
+  async beforeCreate() {
     //actions
-    this.$store.dispatch('setWeather', 'Montesson')
+    await this.$store.dispatch('setWeather', 'Montesson')
     // this.$store.dispatch('setForecast', 'Montesson', 9)
   },
 }
