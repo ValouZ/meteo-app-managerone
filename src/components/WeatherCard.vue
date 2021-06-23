@@ -19,7 +19,10 @@
       <Condition :weather="weather" />
       <Heats :weather="weather" />
 
-      <ArrowDown v-on:click="isHidden = !isHidden" />
+      <ArrowDown
+        v-on:click="isHidden = !isHidden"
+        :class="{ rotate: !isHidden }"
+      />
     </section>
 
     <section class="more" :class="{ hidden: isHidden }">

@@ -1,5 +1,5 @@
 <template>
-  <div >
+  <div class="wcb">
     <WeatherCardBottomElement
       class="last-update"
       :title="'Last update'"

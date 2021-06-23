@@ -1,7 +1,7 @@
 <template>
   <div class="wcb-element">
-    <h4>{{ title }}</h4>
-    <p>{{ content }}</p>
+    <h4 class="wcb-element__title">{{ title }}</h4>
+    <p class="wcb-element__content">{{ content }}</p>
   </div>
 </template>
 

@@ -17,3 +17,12 @@
     </svg>
   </div>
 </template>
+
+<style lang="scss" scoped>
+.arrow-down {
+  transition: $transitionOpenCard ease-in;
+}
+.rotate {
+  transform: rotate(180deg);
+}
+</style>

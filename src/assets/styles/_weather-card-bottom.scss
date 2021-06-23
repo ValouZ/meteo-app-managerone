@@ -1,5 +1,22 @@
-.wcb-element{
-  &:not(:last-child){
+.wcb {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+  .wcb-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%;
     margin-bottom: 7px;
+
+    &:nth-child(2n - 1) {
+      margin-right: 10px;
+    }
+
+    &__title {
+      margin-bottom: 2px;
+      font-size: 18px;
+    }
   }
 }
