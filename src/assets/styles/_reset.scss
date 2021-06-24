@@ -7,21 +7,57 @@
   font-family: "Space Grotesk";
 }
 
-html{
+html {
   min-height: 100vh;
   background: $linear-blue-white;
 }
 
-a{
+a {
   text-decoration: none;
   color: unset;
 }
 
-ul{
+ul {
   list-style: none;
 }
 
-.city-name{
+.city-name {
   font-size: 26px;
   font-weight: 700;
+}
+
+.sunny {
+  background: #f1fcb2 !important;
+}
+
+.clear {
+  background: #172a34 !important;
+}
+
+.cloudy {
+  background: #abadac !important;
+}
+
+.fog {
+  background: #e9edf3 !important;
+}
+
+.snow {
+  background: $white !important;
+}
+
+.rain {
+  background: #afc3cc !important;
+}
+
+.thunder {
+  background: #e69a78 !important;
+}
+
+.dark {
+  color: $white;
+  path {
+    fill: $white;
+    stroke: $white;
+  }
 }

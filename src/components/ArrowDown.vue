@@ -21,6 +21,12 @@
 <style lang="scss" scoped>
 .arrow-down {
   transition: $transitionOpenCard ease-in;
+  padding: 15px 50%;
+  svg {
+    path {
+      fill: rgba($color: #000000, $alpha: 0) !important;
+    }
+  }
 }
 .rotate {
   transform: rotate(180deg);

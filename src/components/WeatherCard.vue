@@ -7,16 +7,16 @@
     </section>
   </section>
 
-  <section v-else class="weather-card">
+  <section v-else class="weather-card" :class="bgColor">
     <div v-if="fav" class="already-fav">Already on favorites</div>
     <section class="main">
       <div class="city">
         <h2 class="city-name">{{ city.name }}</h2>
         <!-- si favCity existe, on est sur la page des favoris et on ne veux pas l'afficher -->
-        <StarButton v-if="!favCity" @alreadyFav="alreadyFav" />
+        <StarButton v-if="!favCity" @alreadyFav="alreadyFav" :class="bgColor" />
       </div>
 
-      <Condition :weather="weather" />
+      <Condition :weather="weather" @changeColor="changeColor" />
       <Heats :weather="weather" />
 
       <ArrowDown
@@ -53,6 +53,7 @@ export default {
       minimize: this.favMinimize,
       fav: false,
       isHidden: true,
+      bgColor: "",
     };
   },
 
@@ -73,6 +74,10 @@ export default {
     },
     alreadyFav(state) {
       this.fav = state;
+    },
+    changeColor(color) {
+      this.bgColor = color;
+      console.log(this.bgColor);
     },
   },
 };
