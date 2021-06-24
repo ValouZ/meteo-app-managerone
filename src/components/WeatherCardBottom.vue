@@ -56,21 +56,21 @@ export default {
     getDayString(value) {
       switch (value) {
         case 1:
-          return "Lundi";
+          return "Monday";
         case 2:
-          return "Mardi";
+          return "Tuesday";
         case 3:
-          return "Mercredi";
+          return "Wednesday";
         case 4:
-          return "Jeudi";
+          return "Thursday";
         case 5:
-          return "Vendredi";
+          return "Friday";
         case 6:
-          return "Samedi";
+          return "Saturday";
         case 7:
-          return "Dimanche";
+          return "Sunday";
         default:
-          return "No a day";
+          return "-";
       }
     },
   },
