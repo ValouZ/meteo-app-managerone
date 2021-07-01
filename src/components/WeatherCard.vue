@@ -16,7 +16,7 @@
         <StarButton v-if="!favCity" @alreadyFav="alreadyFav" :class="bgColor" />
       </div>
 
-      <Condition :weather="weather" @changeColor="changeColor" />
+      <Condition :weather="weather" />
       <Heats :weather="weather" />
 
       <ArrowDown
@@ -53,7 +53,6 @@ export default {
       minimize: this.favMinimize,
       fav: false,
       isHidden: true,
-      bgColor: "",
     };
   },
 
@@ -63,6 +62,9 @@ export default {
     },
     city() {
       return this.$store.getters.getLocation;
+    },
+    bgColor() {
+      return this.$store.getters.getBgColor;
     },
   },
 
@@ -74,10 +76,6 @@ export default {
     },
     alreadyFav(state) {
       this.fav = state;
-    },
-    changeColor(color) {
-      this.bgColor = color;
-      console.log(this.bgColor);
     },
   },
 };

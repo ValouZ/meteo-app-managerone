@@ -7,9 +7,8 @@
   font-family: "Space Grotesk";
 }
 
-html {
+.general-content {
   min-height: 100vh;
-  background: $linear-blue-white;
 }
 
 a {
@@ -27,37 +26,65 @@ ul {
 }
 
 .sunny {
-  background: #f1fcb2 !important;
+  background: $sunny !important;
+
+  &-linear {
+    background: $linear-sunny-white !important;
+  }
 }
 
 .clear {
-  background: #172a34 !important;
+  background: $clear !important;
+
+  &-linear {
+    background: $linear-clear-white !important;
+  }
 }
 
 .cloudy {
-  background: #abadac !important;
+  background: $cloudy !important;
+
+  &-linear {
+    background: $linear-cloudy-white !important;
+  }
 }
 
 .fog {
-  background: #e9edf3 !important;
+  background: $fog !important;
+
+  &-linear {
+    background: $linear-fog-white !important;
+  }
 }
 
 .snow {
   background: $white !important;
+
+  &-linear {
+    background: $white !important;
+  }
 }
 
 .rain {
-  background: #afc3cc !important;
+  background: $rain !important;
+
+  &-linear {
+    background: $linear-rain-white !important;
+  }
 }
 
 .thunder {
-  background: #e69a78 !important;
+  background: $thunder !important;
+
+  &-linear {
+    background: $linear-thunder-white !important;
+  }
 }
 
 .dark {
   color: $white;
-  path {
-    fill: $white;
-    stroke: $white;
-  }
+    path {
+      fill: $white;
+      stroke: $white;
+    }
 }

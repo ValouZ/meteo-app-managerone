@@ -13,7 +13,7 @@
 </template>
 
 <script>
-import LoupeIcon from './icon/LoupeIcon.vue'
+import LoupeIcon from "./icon/LoupeIcon.vue";
 export default {
   components: {
     LoupeIcon,
@@ -21,16 +21,17 @@ export default {
 
   data() {
     return {
-      city: '',
-    }
+      city: "",
+    };
   },
 
   methods: {
-    searchWeather(city) {
-      this.$store.dispatch('setWeather', city)
+    async searchWeather(city) {
+      await this.$store.dispatch("setWeather", city);
+      this.$store.dispatch("setColor");
     },
   },
-}
+};
 </script>
 
 <style lang="scss" scoped></style>

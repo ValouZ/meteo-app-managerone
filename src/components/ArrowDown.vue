@@ -21,7 +21,12 @@
 <style lang="scss" scoped>
 .arrow-down {
   transition: $transitionOpenCard ease-in;
-  padding: 15px 50%;
+  padding: 15px 50px;
+
+  &:hover {
+    cursor: pointer;
+  }
+
   svg {
     path {
       fill: rgba($color: #000000, $alpha: 0) !important;

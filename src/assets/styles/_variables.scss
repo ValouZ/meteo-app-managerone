@@ -4,6 +4,17 @@ $blue: #117eff;
 $red: #ff9999;
 $white: #fff;
 $black: #000;
-$linear-blue-white: linear-gradient(to bottom, $white 15%, $lightblue 100%);
+$rain: #afc3cc;
+$thunder: #e69a78;
+$fog: #e9edf3;
+$cloudy: #abadac;
+$clear: #172a34;
+$sunny: #f1fcb2;
+$linear-rain-white: linear-gradient(to bottom, $white 15%, $rain 100%);
+$linear-thunder-white: linear-gradient(to bottom, $white 15%, $thunder 100%);
+$linear-fog-white: linear-gradient(to bottom, $white 15%, $fog 100%);
+$linear-cloudy-white: linear-gradient(to bottom, $white 15%, $cloudy 100%);
+$linear-clear-white: linear-gradient(to bottom, $white 15%, $clear 100%);
+$linear-sunny-white: linear-gradient(to bottom, $white 15%, $sunny 100%);
 
 $transitionOpenCard: 0.4s;

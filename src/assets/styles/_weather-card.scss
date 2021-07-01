@@ -62,7 +62,7 @@
     margin-top: 20px;
     height: 120px;
     overflow: hidden;
-    transition: height $transitionOpenCard ease-out;
+    transition: all $transitionOpenCard ease-out;
   }
   .hidden {
     height: 0px;
