@@ -14,7 +14,7 @@ export default {
   async beforeCreate() {
     //actions
     await this.$store.dispatch("setWeather", "Montesson");
-    // this.$store.dispatch('setForecast', 'Montesson', 9)
+    // this.$store.dispatch('setForecast', 'Montesson')
   },
 
   data() {

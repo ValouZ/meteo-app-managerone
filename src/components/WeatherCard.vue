@@ -40,11 +40,6 @@ import WeatherCardBottom from "./WeatherCardBottom.vue";
 
 export default {
   components: { StarButton, ArrowDown, Condition, Heats, WeatherCardBottom },
-  mounted() {
-    setTimeout(() => {
-      // console.log(this.weather)
-    }, 1000);
-  },
 
   props: ["data", "favMinimize", "favCity"],
 

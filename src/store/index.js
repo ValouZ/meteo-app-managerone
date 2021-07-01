@@ -5,7 +5,7 @@ export default createStore({
     location: {},
     currentWeather: {},
     forecast: {},
-    favCities: ["Montesson", "New york", "Tokyo"],
+    favCities: ["Montesson", "New york", "Tokyo", "Sao Paulo"],
     bgColor: "",
   },
   mutations: {
@@ -32,7 +32,7 @@ export default createStore({
     },
   },
   actions: {
-    async setWeather({ commit, state }, city, day = 0) {
+    async setWeather({ commit, state }, city) {
       await fetch(
         "https://api.weatherapi.com/v1/current.json?key=50a492d81e884b81844173743211906&q=" +
           city +
@@ -43,33 +43,21 @@ export default createStore({
           commit("setLocation", data.location);
           commit("setCurrentWeather", data.current);
         });
-      this.dispatch("setForecast", city, day);
+      this.dispatch("setForecast", city);
     },
-    async setForecast({ commit, state }, city, day = 0) {
+    async setForecast({ commit, state }, city) {
       let url =
         "https://api.weatherapi.com/v1/forecast.json?key=50a492d81e884b81844173743211906&q=" +
         city +
-        "&aqi=no";
-      // Si on cherche un jour spécifique
-      if (day >= 1 && day <= 10) {
-        fetch(url + "&days=" + day)
-          .then((response) => response.json())
-          .then(function(data) {
-            // console.log('Forecast fetched - day: ' + day)
-            commit("setForecast", data);
-          });
-      } else {
-        // Si on veut récupérer les 10 jours à venir
-        for (day = 1; day < 11; day++) {
-          await fetch(url + "&days=" + day)
-            .then((response) => response.json())
-            .then(function(data) {
-              // console.log('Forecast fetched - day: ' + day)
-              // console.log(data)
-              commit("setForecast", data);
-            });
-        }
-      }
+        "&days=10";
+      // On veut récupérer les 10 jours à venir
+      await fetch(url)
+        .then((response) => response.json())
+        .then(function(data) {
+          // console.log('Forecast fetched - day: ' + day)
+          // console.log(data)
+          commit("setForecast", data);
+        });
     },
     addFavCity({ commit, state }, city) {
       commit("addFavCity", city);
@@ -136,5 +124,25 @@ export default createStore({
     getBgColor(state) {
       return state.bgColor;
     },
+    // getDayString(state, value) {
+    //   switch (value) {
+    //     case 1:
+    //       return "Monday";
+    //     case 2:
+    //       return "Tuesday";
+    //     case 3:
+    //       return "Wednesday";
+    //     case 4:
+    //       return "Thursday";
+    //     case 5:
+    //       return "Friday";
+    //     case 6:
+    //       return "Saturday";
+    //     case 7:
+    //       return "Sunday";
+    //     default:
+    //       return "";
+    //   }
+    // },
   },
 });

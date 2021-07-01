@@ -55,6 +55,8 @@ export default {
     },
     getDayString(value) {
       switch (value) {
+        case 0:
+          return "Sunday";
         case 1:
           return "Monday";
         case 2:
@@ -67,8 +69,6 @@ export default {
           return "Friday";
         case 6:
           return "Saturday";
-        case 7:
-          return "Sunday";
         default:
           return "-";
       }

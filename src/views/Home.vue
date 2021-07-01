@@ -2,26 +2,23 @@
   <div class="home">
     <Searchbar />
     <WeatherCard />
+    <MoreDays />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import WeatherCard from '@/components/WeatherCard.vue'
-import Searchbar from '../components/Searchbar.vue'
+import WeatherCard from "@/components/WeatherCard.vue";
+import Searchbar from "@/components/Searchbar.vue";
+import MoreDays from "@/components/MoreDays.vue";
 export default {
-  name: 'Home',
+  name: "Home",
   components: {
     WeatherCard,
     Searchbar,
+    MoreDays,
   },
-
-  // beforeCreate() {
-  //   //actions
-  //   this.$store.dispatch('setWeather', 'Montesson')
-  //   // this.$store.dispatch('setForecast', 'Montesson', 9)
-  // },
-}
+};
 </script>
 
 <style lang="scss" scoped>

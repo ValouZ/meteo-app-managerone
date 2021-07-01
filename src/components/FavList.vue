@@ -1,7 +1,7 @@
 <template>
   <div class="fav-list">
-    <h1 v-if="cities.length < 2" class="fav-city">Favory City</h1>
-    <h1 v-else class="fav-city">Favory Cities</h1>
+    <h1 v-if="cities.length < 2" class="fav-city">Favorite City</h1>
+    <h1 v-else class="fav-city">Favorite Cities</h1>
     <ul>
       <li v-for="(city, i) in cities" :key="i">
         <WeatherCard
