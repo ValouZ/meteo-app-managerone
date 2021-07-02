@@ -13,8 +13,7 @@ export default {
   },
   async beforeCreate() {
     //actions
-    await this.$store.dispatch("setWeather", "Montesson");
-    // this.$store.dispatch('setForecast', 'Montesson')
+    await this.$store.dispatch("setWeather", "Paris");
   },
 
   data() {

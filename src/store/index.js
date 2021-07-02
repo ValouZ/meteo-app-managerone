@@ -5,7 +5,7 @@ export default createStore({
     location: {},
     currentWeather: {},
     forecast: {},
-    favCities: ["Montesson", "New york", "Tokyo", "Sao Paulo"],
+    favCities: [],
     bgColor: "",
   },
   mutations: {

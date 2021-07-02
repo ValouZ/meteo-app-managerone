@@ -31,6 +31,7 @@
   </section>
 </template>
 
+
 <script>
 import StarButton from "./StarButton.vue";
 import ArrowDown from "./ArrowDown.vue";
