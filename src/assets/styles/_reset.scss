@@ -83,8 +83,17 @@ ul {
 
 .dark {
   color: $white;
-    path {
-      fill: $white;
-      stroke: $white;
+  path {
+    fill: $white;
+    stroke: $white;
+  }
+
+  .star-button__button {
+    &:hover .star-icon {
+      path {
+        stroke: $blue;
+        fill: $blue;
+      }
     }
+  }
 }
