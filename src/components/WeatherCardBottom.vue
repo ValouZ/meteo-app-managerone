@@ -20,6 +20,16 @@
       :title="'Feelslike'"
       :content="`${weather.feelslike_c}°C`"
     />
+    <WeatherCardBottomElement
+      class="uv"
+      :title="'UV Index'"
+      :content="`${weather.uv}`"
+    />
+    <WeatherCardBottomElement
+      class="humidity"
+      :title="'Humidity'"
+      :content="`${weather.humidity}%`"
+    />
   </div>
 </template>
 
@@ -35,7 +45,8 @@ export default {
     let that = this;
     setTimeout(() => {
       this.w_lu = that.lastUpdate(this.weather.last_updated);
-    }, 1000);
+      console.log(that.weather);
+    }, 500);
   },
 
   data() {

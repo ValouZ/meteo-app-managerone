@@ -9,7 +9,9 @@
       <h4 class="day">{{ getDayString(day.date) }}</h4>
       <div class="icon-rain">
         <img :src="day.day.condition.icon" class="icon" />
-        <p class="rain-data">{{ day.day.daily_chance_of_rain }} %</p>
+        <p class="rain-data" v-if="day.day.daily_chance_of_rain > 0">
+          {{ day.day.daily_chance_of_rain }} %
+        </p>
       </div>
       <p>{{ day.day.mintemp_c }}°C</p>
       <p>{{ day.day.maxtemp_c }}°C</p>
