@@ -1,0 +1,26 @@
+.more-days {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 350px;
+  padding: 5px 15px;
+  border-radius: 12px 0;
+  box-shadow: 0 0 10px rgba($color: $black, $alpha: 0.15);
+
+  margin-top: 15px;
+
+  .day {
+    width: 80px;
+  }
+
+  .icon-rain {
+    display: flex;
+    align-items: center;
+    color: $blue;
+
+    .icon {
+      margin-right: 5px;
+      width: 35px;
+    }
+  }
+}

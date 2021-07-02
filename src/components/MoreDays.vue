@@ -1,13 +1,19 @@
 <template>
   <template v-if="forecast.forecast">
-    <div v-for="(day, i) in forecast.forecast.forecastday" :key="i">
-      <h4>{{ getDayString(day.date) }}</h4>
+    <div
+      v-for="(day, i) in forecast.forecast.forecastday"
+      :key="i"
+      class="more-days"
+      :class="bgColor"
+    >
+      <h4 class="day">{{ getDayString(day.date) }}</h4>
+      <div class="icon-rain">
+        <img :src="day.day.condition.icon" class="icon" />
+        <p class="rain-data">{{ day.day.daily_chance_of_rain }} %</p>
+      </div>
       <p>{{ day.day.mintemp_c }}°C</p>
       <p>{{ day.day.maxtemp_c }}°C</p>
-      <img :src="day.day.condition.icon" />
-      <p>{{ day.day.daily_chance_of_rain }}</p>
     </div>
-    <pre></pre>
   </template>
 </template>
 
@@ -19,6 +25,9 @@ export default {
     },
     forecast() {
       return this.$store.getters.getForecast;
+    },
+    bgColor() {
+      return this.$store.getters.getBgColor;
     },
   },
 
